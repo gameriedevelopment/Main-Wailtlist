@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import lottie, { AnimationItem } from "lottie-web";
 
 export default function Home() {
   // Brand palette
@@ -25,6 +26,8 @@ export default function Home() {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 600], [0, 60]);
   const y2 = useTransform(scrollY, [0, 600], [0, -50]);
+  // New: subtle global background parallax
+  const bgY = useTransform(scrollY, [0, 800], [0, -30]);
 
   // Animated counter (social proof)
   const [count, setCount] = useState(0);
@@ -74,8 +77,8 @@ export default function Home() {
         "--dark": COLORS.dark,
       }}
     >
-      {/* Neon grid background + floating blobs */}
-      <BackgroundDecor />
+      {/* Neon grid background + floating blobs + parallax */}
+      <BackgroundDecor bgY={bgY} />
 
       {/* HERO */}
       <section className="relative z-10 pt-28 pb-24 sm:pt-32 sm:pb-28">
@@ -155,6 +158,25 @@ export default function Home() {
             </div>
 
             <div className="relative h-[340px] sm:h-[420px]">
+              {/* Spinning neon line background (reintroduced) */}
+              <motion.div
+                aria-hidden
+                className="absolute inset-0 grid place-items-center"
+                animate={{ rotate: 360 }}
+                transition={{ repeat: Infinity, duration: 22, ease: "linear" }}
+              >
+                <div
+                  className="h-[140%] w-[140%] rounded-full"
+                  style={{
+                    background:
+                      "conic-gradient(from 0deg, rgba(198,163,255,0.0) 0deg, rgba(198,163,255,0.6) 90deg, rgba(198,163,255,0.0) 180deg, rgba(198,163,255,0.6) 270deg, rgba(198,163,255,0.0) 360deg)",
+                    mask: "radial-gradient(farthest-side, transparent calc(100% - 2px), black calc(100% - 1px))",
+                    opacity: 0.25,
+                    filter: "blur(1px)",
+                  }}
+                />
+              </motion.div>
+
               <motion.div
                 style={{ y: y1 }}
                 className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[color:var(--neo)]/25 via-[color:var(--acc)]/10 to-transparent blur-2xl"
@@ -164,7 +186,6 @@ export default function Home() {
                 className="absolute right-4 top-6 w-48 h-48 sm:w-60 sm:h-60 rounded-full bg-[color:var(--neo)]/25 blur-2xl"
               />
               <div className="absolute inset-0 rounded-3xl border border-white/10 bg-[color:var(--card)]/60 backdrop-blur-md p-6 overflow-hidden">
-                <div className="absolute inset-0 neon-border-anim rounded-3xl pointer-events-none" />
                 <div className="relative z-10 h-full grid place-items-center">
                   <img
                     src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop"
@@ -187,10 +208,10 @@ export default function Home() {
           </h2>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { title: "Compete & earn rewards", emoji: "🎮", desc: "Climb leaderboards and win drops." },
-              { title: "Global gaming community", emoji: "🌍", desc: "Squad up with players worldwide." },
-              { title: "Early perks + beta access", emoji: "💎", desc: "Be first to test tournaments." },
-              { title: "Fair • secure • community-first", emoji: "🔒", desc: "Built with players in mind." },
+              { title: "Your Players Profile", emoji: "🧬", desc: "Showcase your skills and your gaming journey, with a free custom profile." },
+              { title: "Unleash the Beast Coach", emoji: "🧠", desc: "Share expertise, train players, manage teams, and build your coaching brand." },
+              { title: "Your Gaming Time in Control", emoji: "🗓️", desc: "Plan tournaments, practices, team meetings, and events in one powerful calendar." },
+              { title: "Play Together and Conquer", emoji: "⚔️", desc: "Connect with gamers worldwide to play, join your dream team, and win." },
             ].map((b, i) => (
               <motion.div
                 key={b.title}
@@ -200,13 +221,24 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: i * 0.05 }}
                 whileHover={{ rotateX: 4, rotateY: -4, scale: 1.02 }}
                 style={{ transformStyle: "preserve-3d" }}
+                className="group"
               >
-                <Card className="group relative overflow-hidden rounded-2xl border-white/10 bg-[color:var(--card)]/70 backdrop-blur-md will-change-transform">
-                  <CardContent className="p-6">
+                <Card
+                  className="relative overflow-hidden rounded-2xl border-white/10 bg-[color:var(--card)]/70 backdrop-blur-md will-change-transform h-full"
+                  onMouseMove={(e) => {
+                    const r = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
+                    e.currentTarget.style.setProperty("--x", `${e.clientX - r.left}px`);
+                    e.currentTarget.style.setProperty("--y", `${e.clientY - r.top}px`);
+                  }}
+                >
+                  {/* Neon ripple */}
+                  <span className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300" style={{ background: "radial-gradient(600px circle at var(--x,50%) var(--y,50%), rgba(198,163,255,0.18), transparent 40%)" }} />
+                  <CardContent className="p-6 flex flex-col h-full min-h-[200px]">
                     <div className="text-3xl mb-3">{b.emoji}</div>
                     <h3 className="font-semibold text-lg">{b.title}</h3>
                     <p className="mt-2 text-white/70">{b.desc}</p>
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300">
+                    <div className="mt-auto" />
+                    <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300">
                       <div
                         className="absolute -inset-[1px] rounded-2xl"
                         style={{
@@ -231,18 +263,24 @@ export default function Home() {
             <span className="block h-1 mt-2 w-40 bg-[color:var(--neo)]/80 blur-sm" />
           </h2>
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {["AI-Powered Matchmaking", "Anti-cheat & Fair Play", "Rewards & Trophies"].map((txt, i) => (
+            {[
+              { title: "AI-Powered Matchmaking", path: "https://assets9.lottiefiles.com/packages/lf20_kkflmtur.json" },
+              { title: "Anti-cheat & Fair Play", path: "https://assets4.lottiefiles.com/packages/lf20_tQ7ZQh.json" },
+              { title: "Rewards & Trophies", path: "https://assets3.lottiefiles.com/packages/lf20_yr6zz3wv.json" },
+            ].map((item, i) => (
               <motion.div
-                key={txt}
+                key={item.title}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
                 className="rounded-2xl border border-white/10 bg-[color:var(--card)]/60 p-6 backdrop-blur-md"
               >
-                <div className="h-20 mb-4 rounded-xl bg-gradient-to-tr from-[color:var(--neo)]/20 via-[color:var(--acc)]/15 to-transparent ring-1 ring-white/10" />
-                <h3 className="font-semibold text-lg">{txt}</h3>
-                <p className="mt-2 text-white/70">Placeholder — add your copy here. Cards reveal with fade+zoom and neon underline.</p>
+                <div className="h-24 mb-4 rounded-xl ring-1 ring-white/10 bg-black/10 flex items-center justify-center overflow-hidden">
+                  <LottieBox path={item.path} />
+                </div>
+                <h3 className="font-semibold text-lg">{item.title}</h3>
+                <p className="mt-2 text-white/70">Short looping animation showcases the feature in action.</p>
               </motion.div>
             ))}
           </div>
@@ -373,18 +411,45 @@ export default function Home() {
   );
 }
 
-function BackgroundDecor() {
+// Lightweight Lottie player using lottie-web
+function LottieBox({ path }: { path: string }) {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (!ref.current) return;
+    let anim: AnimationItem | null = null;
+    anim = lottie.loadAnimation({
+      container: ref.current,
+      renderer: "svg",
+      loop: true,
+      autoplay: true,
+      path,
+      rendererSettings: { preserveAspectRatio: "xMidYMid meet" },
+    });
+    return () => {
+      anim?.destroy();
+    };
+  }, [path]);
+  return <div ref={ref} className="h-24 w-full" />;
+}
+
+function BackgroundDecor({ bgY }: { bgY: any }) {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10">
-      <div
+      <motion.div
+        style={{ y: bgY }}
         className="absolute inset-0 opacity-40"
-        style={{
-          backgroundImage:
-            "linear-gradient(transparent 23px, rgba(255,255,255,0.06) 24px), linear-gradient(90deg, transparent 23px, rgba(255,255,255,0.06) 24px)",
-          backgroundSize: "24px 24px, 24px 24px",
-          backgroundPosition: "center center",
-        }}
-      />
+        aria-hidden
+      >
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "linear-gradient(transparent 23px, rgba(255,255,255,0.06) 24px), linear-gradient(90deg, transparent 23px, rgba(255,255,255,0.06) 24px)",
+            backgroundSize: "24px 24px, 24px 24px",
+            backgroundPosition: "center center",
+          }}
+        />
+      </motion.div>
 
       {/* Parallax neon blobs */}
       <motion.div
@@ -404,8 +469,8 @@ function BackgroundDecor() {
         style={{ background: "radial-gradient(closest-side, rgba(158,131,200,0.28), transparent)" }}
       />
 
-      {/* Floating particles */}
-      <div className="absolute inset-0">
+      {/* Floating particles with gentle parallax */}
+      <motion.div className="absolute inset-0" style={{ y: useTransform(bgY, [0, -30], [0, -10]) }}>
         {new Array(24).fill(0).map((_, i) => (
           <motion.span
             key={i}
@@ -420,7 +485,7 @@ function BackgroundDecor() {
             transition={{ duration: 3 + (i % 5), repeat: Infinity, ease: "easeInOut", delay: i * 0.12 }}
           />
         ))}
-      </div>
+      </motion.div>
     </div>
   );
 }
