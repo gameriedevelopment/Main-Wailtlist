@@ -45,6 +45,7 @@ export default function Home() {
   // Email form handling (mock)
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState<string>("");
   const formRef = useRef<HTMLFormElement>(null);
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -55,7 +56,8 @@ export default function Home() {
     setLoading(false);
     formRef.current?.reset();
     setEmail("");
-    alert("You're on the list! Check your inbox soon.");
+    setSuccess("You're on the list! Check your inbox soon.");
+    setTimeout(() => setSuccess(""), 3500);
   };
 
   return (
@@ -90,7 +92,7 @@ export default function Home() {
                     "0 0 18px rgba(198,163,255,0.35), 0 0 40px rgba(198,163,255,0.25)",
                 }}
               >
-                Gamérie: The Gaming Hub Where Play Meets Community.
+                Gamérie is Coming — Power Up Your Play
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 8 }}
@@ -118,14 +120,20 @@ export default function Home() {
                         "placeholder:text-white/40 focus-visible:ring-[color:var(--neo)]"
                       )}
                     />
-                    <div className="pointer-events-none absolute inset-0 rounded-xl neon-ring" />
+                    <div
+                      className="pointer-events-none absolute inset-0 rounded-xl"
+                      style={{
+                        boxShadow:
+                          "0 0 0 1px rgba(255,255,255,0.08), 0 0 18px var(--neo), inset 0 0 22px rgba(198,163,255,0.15)",
+                      }}
+                    />
                   </div>
                   <Button
                     type="submit"
                     disabled={loading}
                     className="h-12 rounded-xl px-6 font-semibold bg-[color:var(--neo)] text-black hover:brightness-110 transition will-change-transform shadow-[0_0_25px_rgba(198,163,255,0.55)]"
                   >
-                    {loading ? "Joining..." : "Join the Waitlist"}
+                    {loading ? "Joining..." : "Join the Waitlist + Discord"}
                   </Button>
                   <a
                     href="https://discord.com/invite/"
@@ -137,7 +145,12 @@ export default function Home() {
                     Join Discord
                   </a>
                 </form>
-                <p className="mt-3 text-sm text-white/50">No spam. Just alpha.</p>
+                {!!success && (
+                  <p className="mt-3 text-sm text-[color:var(--neo)]/90 drop-shadow" style={{textShadow:"0 0 12px rgba(198,163,255,0.55)"}}>
+                    {success}
+                  </p>
+                )}
+                {!success && <p className="mt-3 text-sm text-white/50">No spam. Just alpha.</p>}
               </motion.div>
             </div>
 
@@ -168,7 +181,10 @@ export default function Home() {
       {/* BENEFITS */}
       <section className="relative z-10 py-14 sm:py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-8">Why join?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8">
+            Level Up With Gamérie
+            <span className="block h-1 mt-2 w-24 bg-[color:var(--neo)]/80 blur-sm" />
+          </h2>
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { title: "Compete & earn rewards", emoji: "🎮", desc: "Climb leaderboards and win drops." },
@@ -182,17 +198,51 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-80px" }}
                 transition={{ duration: 0.5, delay: i * 0.05 }}
+                whileHover={{ rotateX: 4, rotateY: -4, scale: 1.02 }}
+                style={{ transformStyle: "preserve-3d" }}
               >
-                <Card className="group relative overflow-hidden rounded-2xl border-white/10 bg-[color:var(--card)]/70 backdrop-blur-md">
+                <Card className="group relative overflow-hidden rounded-2xl border-white/10 bg-[color:var(--card)]/70 backdrop-blur-md will-change-transform">
                   <CardContent className="p-6">
                     <div className="text-3xl mb-3">{b.emoji}</div>
                     <h3 className="font-semibold text-lg">{b.title}</h3>
                     <p className="mt-2 text-white/70">{b.desc}</p>
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-300">
-                      <div className="absolute -inset-[1px] rounded-2xl neon-ring" />
+                      <div
+                        className="absolute -inset-[1px] rounded-2xl"
+                        style={{
+                          boxShadow:
+                            "0 0 0 1px rgba(255,255,255,0.08), 0 0 18px var(--neo), inset 0 0 22px rgba(198,163,255,0.15)",
+                        }}
+                      />
                     </div>
                   </CardContent>
                 </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY GAMÉRIE WINS */}
+      <section className="relative z-10 py-16 sm:py-20">
+        <div className="mx-auto max-w-6xl px-6">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-10">
+            Why Gamérie Wins
+            <span className="block h-1 mt-2 w-40 bg-[color:var(--neo)]/80 blur-sm" />
+          </h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {["AI-Powered Matchmaking", "Anti-cheat & Fair Play", "Rewards & Trophies"].map((txt, i) => (
+              <motion.div
+                key={txt}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, delay: i * 0.08 }}
+                className="rounded-2xl border border-white/10 bg-[color:var(--card)]/60 p-6 backdrop-blur-md"
+              >
+                <div className="h-20 mb-4 rounded-xl bg-gradient-to-tr from-[color:var(--neo)]/20 via-[color:var(--acc)]/15 to-transparent ring-1 ring-white/10" />
+                <h3 className="font-semibold text-lg">{txt}</h3>
+                <p className="mt-2 text-white/70">Placeholder — add your copy here. Cards reveal with fade+zoom and neon underline.</p>
               </motion.div>
             ))}
           </div>
@@ -231,43 +281,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* SOCIAL PROOF */}
+      {/* VOICES FROM THE ARENA (Testimonials) */}
       <section className="relative z-10 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-6">
-          <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[color:var(--card)]/60 backdrop-blur-md p-8 sm:p-10">
-            <div className="absolute inset-0 neon-border-anim rounded-3xl pointer-events-none" />
-            <div className="grid gap-8 lg:grid-cols-2 items-center">
-              <div>
-                <p className="text-3xl sm:text-4xl font-extrabold">
-                  {count.toLocaleString()}+ gamers already joined
-                </p>
-                <p className="mt-2 text-white/70">Be part of the launch-day squad and unlock exclusive rewards.</p>
-                <div className="mt-6 flex flex-wrap gap-3">
-                  <Button
-                    onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                    className="rounded-xl h-11 bg-[color:var(--neo)] text-black shadow-[0_0_22px_rgba(198,163,255,0.5)] hover:brightness-110"
-                  >
-                    Get Early Access
-                  </Button>
-                  <a
-                    href="https://discord.com/invite/"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-xl h-11 px-4 border border-white/15 bg-white/5 hover:bg-white/10 inline-flex items-center shadow-[0_0_18px_rgba(156,136,200,0.35)]"
-                  >
-                    Join Discord
-                  </a>
+          <h2 className="text-2xl sm:text-3xl font-bold mb-8">Voices From the Arena</h2>
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {[
+              { quote: "The tournaments feel next-level — hype and fair.", tag: "PurityMurity#4521" },
+              { quote: "Matchmaking is insanely good. Found my squad fast.", tag: "NovaStrike#8890" },
+              { quote: "Rewards actually feel rewarding. I'm in.", tag: "HexMage#1010" },
+            ].map((t, i) => (
+              <motion.div
+                key={t.tag}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.5, delay: i * 0.12 }}
+                className="relative rounded-2xl border border-white/10 bg-[color:var(--card)]/60 p-6 backdrop-blur-md"
+              >
+                <div className="relative">
+                  <p className="text-white/90">"{t.quote}"</p>
                 </div>
-              </div>
-              <div className="relative">
-                <img
-                  src="https://images.unsplash.com/photo-1511512578047-dfb367046420?q=80&w=1600&auto=format&fit=crop"
-                  alt="Discord community preview"
-                  className="w-full h-64 sm:h-72 object-cover rounded-2xl"
-                />
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-white/10" />
-              </div>
-            </div>
+                <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-1 text-sm shadow-[0_0_18px_rgba(156,136,200,0.35)]">
+                  <span className="h-2 w-2 rounded-full bg-[color:var(--neo)] shadow-[0_0_8px_rgba(198,163,255,0.9)]" />
+                  <span className="font-medium text-white/90">{t.tag}</span>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -279,7 +319,7 @@ export default function Home() {
             className="text-3xl sm:text-5xl font-extrabold"
             style={{ textShadow: "0 0 18px rgba(198,163,255,0.35)" }}
           >
-            Your squad is waiting. Are you in?
+            Your Journey Starts Here — Join the Waitlist
           </h2>
           <p className="mt-4 text-white/75 text-lg">Reserve your username and get notified for the first tournaments.</p>
 
@@ -292,7 +332,13 @@ export default function Home() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="h-12 rounded-xl bg-[color:var(--card)]/80 border border-white/10 text-base placeholder:text-white/40 focus-visible:ring-[color:var(--neo)]"
                 />
-                <div className="pointer-events-none absolute inset-0 rounded-xl neon-ring" />
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-xl"
+                  style={{
+                    boxShadow:
+                      "0 0 0 1px rgba(255,255,255,0.08), 0 0 18px var(--neo), inset 0 0 22px rgba(198,163,255,0.15)",
+                  }}
+                />
               </div>
               <Button
                 type="submit"
@@ -310,6 +356,11 @@ export default function Home() {
                 Join Discord
               </a>
             </form>
+            {!!success && (
+              <p className="mt-3 text-sm text-[color:var(--neo)]/90 drop-shadow" style={{textShadow:"0 0 12px rgba(198,163,255,0.55)"}}>
+                {success}
+              </p>
+            )}
           </div>
         </div>
 
@@ -317,36 +368,7 @@ export default function Home() {
         <div className="pointer-events-none absolute inset-x-0 -bottom-32 h-64 bg-[radial-gradient(60%_60%_at_50%_0%,_rgba(198,163,255,0.25)_0%,_transparent_70%)]" />
       </section>
 
-      {/* Local styles for neon + grid */}
-      <style jsx global>{`
-        body { background: var(--background); }
-        .neon-ring {
-          border-radius: inherit;
-          box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 0 18px var(--neo), inset 0 0 22px rgba(198,163,255,0.15);
-        }
-        .neon-border-anim::before {
-          content: "";
-          position: absolute;
-          inset: -2px;
-          border-radius: inherit;
-          padding: 2px;
-          background: conic-gradient(from 90deg, transparent, var(--neo), transparent 30%);
-          -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-          -webkit-mask-composite: xor;
-                  mask-composite: exclude;
-          animation: spin 4s linear infinite;
-          opacity: 0.75;
-        }
-        @keyframes spin { to { transform: rotate(360deg); } }
-
-        .bg-grid {
-          background-image:
-            linear-gradient(transparent 23px, rgba(255,255,255,0.06) 24px),
-            linear-gradient(90deg, transparent 23px, rgba(255,255,255,0.06) 24px);
-          background-size: 24px 24px, 24px 24px;
-          background-position: center center;
-        }
-      `}</style>
+      {/* styled-jsx removed; all styles moved to Tailwind/inline to comply with Next.js 15 */}
     </div>
   );
 }
@@ -354,7 +376,15 @@ export default function Home() {
 function BackgroundDecor() {
   return (
     <div className="pointer-events-none absolute inset-0 -z-10">
-      <div className="absolute inset-0 bg-grid opacity-40" />
+      <div
+        className="absolute inset-0 opacity-40"
+        style={{
+          backgroundImage:
+            "linear-gradient(transparent 23px, rgba(255,255,255,0.06) 24px), linear-gradient(90deg, transparent 23px, rgba(255,255,255,0.06) 24px)",
+          backgroundSize: "24px 24px, 24px 24px",
+          backgroundPosition: "center center",
+        }}
+      />
 
       {/* Parallax neon blobs */}
       <motion.div
