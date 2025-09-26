@@ -287,38 +287,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* HOW IT WORKS */}
-      <section className="relative z-10 py-16 sm:py-20">
-        <div className="mx-auto max-w-6xl px-6">
-          <h2 className="text-2xl sm:text-3xl font-bold mb-10">How it works</h2>
-          <div className="relative">
-            <div className="pointer-events-none absolute left-0 right-0 top-8 h-px bg-gradient-to-r from-transparent via-white/15 to-transparent" />
-            <div className="grid gap-8 sm:grid-cols-3">
-              {[
-                { step: 1, title: "Sign up", text: "Reserve your spot.", icon: "✍️" },
-                { step: 2, title: "Join Discord", text: "Connect with other gamers.", icon: "🎧" },
-                { step: 3, title: "Play", text: "Be part of the first tournaments.", icon: "🕹️" },
-              ].map((s, i) => (
-                <motion.div
-                  key={s.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  transition={{ duration: 0.55, delay: i * 0.08 }}
-                  className="relative"
-                >
-                  <div className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--neo)] text-black font-bold shadow-[0_0_20px_rgba(198,163,255,0.55)]">
-                    {s.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold">{s.step}. {s.title}</h3>
-                  <p className="text-white/70">{s.text}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* VOICES FROM THE ARENA (Testimonials) */}
       <section className="relative z-10 py-16 sm:py-20">
         <div className="mx-auto max-w-6xl px-6">
@@ -405,6 +373,34 @@ export default function Home() {
         {/* Ending wave */}
         <div className="pointer-events-none absolute inset-x-0 -bottom-32 h-64 bg-[radial-gradient(60%_60%_at_50%_0%,_rgba(198,163,255,0.25)_0%,_transparent_70%)]" />
       </section>
+
+      {/* FOOTER */}
+      <footer className="relative z-10 border-t border-white/10 bg-[color:var(--dark)]/70 backdrop-blur-md">
+        <div className="mx-auto max-w-6xl px-6 py-10">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between gap-6">
+            <div className="text-center sm:text-left">
+              <div className="inline-flex items-center gap-2">
+                <span className="h-2 w-2 rounded-full bg-[color:var(--neo)] shadow-[0_0_12px_rgba(198,163,255,0.9)]" />
+                <span className="text-lg font-bold tracking-wide" style={{ textShadow: "0 0 14px rgba(198,163,255,0.45)" }}>Gamérie</span>
+              </div>
+              <p className="mt-2 text-white/60 text-sm">Play. Compete. Connect. Power up your play.</p>
+            </div>
+            <div className="flex items-center gap-6 text-sm">
+              <a href="/terms" className="text-white/70 hover:text-white transition">Terms</a>
+              <a href="/privacy" className="text-white/70 hover:text-white transition">Privacy</a>
+            </div>
+          </div>
+          <div className="mt-6 flex items-center justify-between text-xs text-white/50">
+            <span>© {new Date().getFullYear()} Gamérie. All rights reserved.</span>
+            <span className="inline-flex items-center gap-2">
+              <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--neo)]/80 shadow-[0_0_8px_rgba(198,163,255,0.8)]" />
+              <span className="text-white/60">Made for gamers</span>
+            </span>
+          </div>
+        </div>
+        {/* Subtle neon glow underline */}
+        <div className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-[color:var(--neo)]/50 to-transparent" />
+      </footer>
 
       {/* styled-jsx removed; all styles moved to Tailwind/inline to comply with Next.js 15 */}
     </div>
