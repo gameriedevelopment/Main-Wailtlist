@@ -87,6 +87,18 @@ export default function Home() {
           }}
         />
       </div>
+      <div className="absolute w-60 top-8 left-2 z-20">
+        <div className="flex items-center justify-start sm:pl-10 pl-6 ">
+          <img
+            src="/gamerie-logo.png"
+            alt="Gamerie"
+            className={` object-contain size-5 sm:size-6`}
+          />
+          <h2 className="font-display text-lg sm:text-2xl font-bold text-white text-center sm:text-left">
+            GAMERIE
+          </h2>
+        </div>
+      </div>
 
       {/* HERO */}
       <Hero
