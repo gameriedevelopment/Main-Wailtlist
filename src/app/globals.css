@@ -84,35 +84,35 @@
 .dark {
   --background: #232323;
   --foreground: #ffffff;
-  --card: #38333F;
+  --card: #38333f;
   --card-foreground: #ffffff;
-  --popover: #38333F;
+  --popover: #38333f;
   --popover-foreground: #ffffff;
-  --primary: #C6A3FF; /* neon */
+  --primary: #c6a3ff; /* neon */
   --primary-foreground: #0b0b0b;
-  --secondary: #4C435A; /* mid-tone */
+  --secondary: #4c435a; /* mid-tone */
   --secondary-foreground: #ffffff;
-  --muted: #4C435A; /* mid-tone */
-  --muted-foreground: #C6A3FF; /* subtle neon */
-  --accent: #9E83C8; /* accent */
+  --muted: #4c435a; /* mid-tone */
+  --muted-foreground: #c6a3ff; /* subtle neon */
+  --accent: #9e83c8; /* accent */
   --accent-foreground: #0b0b0b;
   --destructive: oklch(0.704 0.191 22.216);
   --border: #ffffff1a; /* 10% white */
   --input: #ffffff26; /* 15% white */
-  --ring: #C6A3FF; /* neon glow */
-  --chart-1: #C6A3FF;
-  --chart-2: #9E83C8;
+  --ring: #c6a3ff; /* neon glow */
+  --chart-1: #c6a3ff;
+  --chart-2: #9e83c8;
   --chart-3: #756391;
-  --chart-4: #4C435A;
-  --chart-5: #38333F;
-  --sidebar: #38333F;
+  --chart-4: #4c435a;
+  --chart-5: #38333f;
+  --sidebar: #38333f;
   --sidebar-foreground: #ffffff;
-  --sidebar-primary: #C6A3FF;
+  --sidebar-primary: #c6a3ff;
   --sidebar-primary-foreground: #0b0b0b;
-  --sidebar-accent: #9E83C8;
+  --sidebar-accent: #9e83c8;
   --sidebar-accent-foreground: #0b0b0b;
   --sidebar-border: #ffffff1a;
-  --sidebar-ring: #C6A3FF;
+  --sidebar-ring: #c6a3ff;
 }
 
 @layer base {
@@ -127,4 +127,10 @@
 /* Hide Next.js error overlay portal */
 nextjs-portal {
   display: none !important;
+}
+
+.text-glow {
+  text-shadow:
+    0 0 8px rgba(198, 163, 255, 0.8),
+    0 0 16px rgba(158, 131, 200, 0.5);
 }
