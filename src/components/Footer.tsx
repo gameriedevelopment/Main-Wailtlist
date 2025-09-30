@@ -11,14 +11,16 @@ export default function Footer() {
           </div>
           <div className="flex gap-8 text-sm">
             <a
-              href="/terms"
+              href={process.env.NEXT_PUBLIC_TERMS_OF_SERVICE}
               className="text-white/60 hover:text-white transition-colors"
+              target="_blank"
             >
               Terms
             </a>
             <a
-              href="/privacy"
+              href={process.env.NEXT_PUBLIC_PRIVACY_POLICY}
               className="text-white/60 hover:text-white transition-colors"
+              target="_blank"
             >
               Privacy
             </a>

@@ -115,10 +115,10 @@ export default function JoinEarly() {
           <Button
             onClick={() =>
               document
-                .querySelector("form")
+                .querySelector("#hero-section")
                 ?.scrollIntoView({ behavior: "smooth" })
             }
-            className="h-12 px-8 bg-[color:var(--neo)] hover:bg-[color:var(--acc)] text-black font-medium rounded-lg"
+            className="h-12 px-8 bg-[color:var(--neo)] hover:bg-[color:var(--acc)] text-black font-medium rounded-lg cursor-pointer"
           >
             Claim your perks
           </Button>
@@ -127,100 +127,4 @@ export default function JoinEarly() {
       </div>
     </section>
   );
-}
-
-{
-  /* <section className="relative py-32 px-6">
-        <div className="mx-auto max-w-6xl">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <div className="inline-block px-3 py-1 rounded-full bg-[color:var(--neo)]/10 border border-[color:var(--neo)]/20 text-sm font-medium text-[color:var(--neo)] mb-6">
-              Why Join Early
-            </div>
-            <h2 className="text-5xl sm:text-6xl font-bold tracking-tight mb-6 max-w-3xl mx-auto leading-tight">
-              Early access = exclusive perks
-            </h2>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto">
-              The first 500 members unlock lifetime benefits and shape the
-              future of Gamérie.
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {[
-              {
-                icon: "🎖️",
-                title: "Founder Badge",
-                desc: "Permanent badge showing you were here first",
-              },
-              {
-                icon: "🎁",
-                title: "Exclusive Rewards",
-                desc: "Early tournament access and premium features",
-              },
-              {
-                icon: "🗳️",
-                title: "Shape the Platform",
-                desc: "Vote on features and influence the roadmap",
-              },
-              {
-                icon: "💎",
-                title: "Reserved Username",
-                desc: "Claim your perfect username now",
-              },
-              {
-                icon: "🚀",
-                title: "Priority Support",
-                desc: "Direct line to our team for life",
-              },
-              {
-                icon: "🔓",
-                title: "Beta Access",
-                desc: "First to try new features and tournaments",
-              },
-            ].map((item, i) => (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/[0.07] hover:border-[color:var(--neo)]/30 transition-all"
-              >
-                <div className="text-3xl mb-4">{item.icon}</div>
-                <h3 className="text-lg font-semibold mb-2">{item.title}</h3>
-                <p className="text-sm text-white/50 leading-relaxed">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center"
-          >
-            <Button
-              onClick={() =>
-                document
-                  .querySelector("form")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
-              className="h-12 px-8 bg-[color:var(--neo)] hover:bg-[color:var(--acc)] text-black font-medium rounded-lg"
-            >
-              Claim your perks
-            </Button>
-            <p className="mt-4 text-sm text-white/40">
-              Only 500 spots remaining
-            </p>
-          </motion.div>
-        </div>
-      </section> */
 }

@@ -144,11 +144,11 @@ export default function SolutionSection() {
             <Button
               onClick={() =>
                 document
-                  .querySelector("form")
+                  .querySelector("#hero-section")
                   ?.scrollIntoView({ behavior: "smooth" })
               }
               variant="ghost"
-              className="text-[color:var(--neo)] hover:bg-[color:var(--neo)]/10 h-11 px-6 rounded-lg"
+              className="text-[color:var(--neo)] hover:bg-[color:var(--neo)]/10 h-11 px-6 rounded-lg cursor-pointer"
             >
               Get early access →
             </Button>
@@ -157,113 +157,4 @@ export default function SolutionSection() {
       </div>
     </section>
   );
-}
-
-{
-  /* <section className="relative py-32 px-6">
-        <div className="mx-auto max-w-6xl">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-2 lg:order-1"
-            >
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-[color:var(--neo)]/10 to-[color:var(--acc)]/5 border border-white/10 p-8 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(198,163,255,0.1),transparent_60%)]" />
-                <div className="relative text-center">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-[color:var(--neo)] to-[color:var(--acc)] flex items-center justify-center">
-                    <svg
-                      className="w-10 h-10 text-black"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M13 10V3L4 14h7v7l9-11h-7z"
-                      />
-                    </svg>
-                  </div>
-                  <p className="text-sm text-white/60">Platform Demo</p>
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="order-1 lg:order-2"
-            >
-              <div className="inline-block px-3 py-1 rounded-full bg-[color:var(--neo)]/10 border border-[color:var(--neo)]/20 text-sm font-medium text-[color:var(--neo)] mb-6">
-                The Solution
-              </div>
-              <h2 className="text-5xl sm:text-6xl font-bold tracking-tight mb-6 leading-tight">
-                Everything in one place
-              </h2>
-              <p className="text-xl text-white/60 leading-relaxed mb-8">
-                Unified profile, squad finder, tournaments, and coaching. All
-                the tools you need to level up your gaming.
-              </p>
-
-              <div className="space-y-4 mb-8">
-                {[
-                  {
-                    icon: "🧬",
-                    title: "Unified Profile",
-                    desc: "One identity across all games",
-                  },
-                  {
-                    icon: "⚔️",
-                    title: "Squad Finder",
-                    desc: "AI-powered team matching",
-                  },
-                  {
-                    icon: "🏆",
-                    title: "Tournaments",
-                    desc: "Compete and earn rewards",
-                  },
-                  {
-                    icon: "🧠",
-                    title: "Pro Coaching",
-                    desc: "Learn from the best",
-                  },
-                ].map((item, i) => (
-                  <motion.div
-                    key={item.title}
-                    initial={{ opacity: 0, x: 20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                    className="flex items-center gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors"
-                  >
-                    <span className="text-2xl">{item.icon}</span>
-                    <div>
-                      <div className="font-semibold mb-0.5">{item.title}</div>
-                      <p className="text-sm text-white/50">{item.desc}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-
-              <Button
-                onClick={() =>
-                  document
-                    .querySelector("form")
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                variant="ghost"
-                className="text-[color:var(--neo)] hover:bg-[color:var(--neo)]/10 h-11 px-6 rounded-lg"
-              >
-                Get early access →
-              </Button>
-            </motion.div>
-          </div>
-        </div>
-      </section> */
 }

@@ -1,11 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Card, CardContent } from "@/components/ui/card";
-import { cn } from "@/lib/utils";
+import { useScroll, useTransform } from "framer-motion";
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
@@ -32,9 +28,6 @@ export default function Home() {
   const { scrollY } = useScroll();
   const heroY = useTransform(scrollY, [0, 500], [0, 150]);
   const heroOpacity = useTransform(scrollY, [0, 300], [1, 0]);
-  // const heroOpacity = useTransform(scrollY, [0, 200], [1, 0.9], {
-  //   clamp: true,
-  // });
 
   // Animated counter
   const [count, setCount] = useState(0);
