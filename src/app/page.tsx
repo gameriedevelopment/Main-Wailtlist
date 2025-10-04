@@ -3,12 +3,14 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { useScroll, useTransform } from "framer-motion";
 import Hero from "@/components/Hero";
-import ProblemSection from "@/components/ProblemSection";
-import SolutionSection from "@/components/SolutionSection";
 import JoinEarly from "@/components/JoinEarly";
 import CommunityProof from "@/components/CommunityProof";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
+import UnifiedPlatformSection from "@/components/UnifiedPlatform";
+import CommandCenterSection from "@/components/CommandSection";
+import EsportsStatsSection from "@/components/EsportStats";
+import FAQSection from "@/components/FAQ";
 
 export default function Home() {
   // Brand palette
@@ -113,13 +115,16 @@ export default function Home() {
         heroOpacity={heroOpacity}
       />
 
-      {/*STORY SECTION 1: THE PROBLEM */}
-      <ProblemSection />
+      {/*STORY SECTION 2: E-SPORT STATS */}
+      <EsportsStatsSection />
 
-      {/* STORY SECTION 2: THE SOLUTION */}
-      <SolutionSection />
+      {/*STORY SECTION 3: UNIFIED PLATFORM */}
+      <UnifiedPlatformSection />
 
-      {/* STORY SECTION 3: WHY JOIN EARLY */}
+      {/* STORY SECTION 4: THE SOLUTION */}
+      <CommandCenterSection />
+
+      {/* STORY SECTION 5: WHY JOIN EARLY */}
       <JoinEarly />
 
       {/* COMMUNITY PROOF */}
@@ -132,6 +137,9 @@ export default function Home() {
         loading={loading}
         success={success}
       />
+
+      {/* FAQ */}
+      <FAQSection />
 
       {/* FOOTER */}
       <Footer />
