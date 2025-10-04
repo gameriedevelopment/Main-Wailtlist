@@ -39,14 +39,16 @@ export default function ThankYouPage() {
   return (
     <div
       className="relative min-h-screen overflow-hidden bg-[#0a0a0a] text-white flex items-center justify-center px-6"
-      style={{
-        "--neo": COLORS.neon,
-        "--acc": COLORS.accent,
-        "--hlt": COLORS.highlight,
-        "--mid": COLORS.mid,
-        "--card": COLORS.card,
-        "--dark": COLORS.dark,
-      }}
+      style={
+        {
+          "--neo": COLORS.neon,
+          "--acc": COLORS.accent,
+          "--hlt": COLORS.highlight,
+          "--mid": COLORS.mid,
+          "--card": COLORS.card,
+          "--dark": COLORS.dark,
+        } as React.CSSProperties
+      }
     >
       {/* Enhanced background with gradient mesh overlays */}
       <div className="fixed inset-0 -z-10">
