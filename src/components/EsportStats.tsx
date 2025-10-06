@@ -14,7 +14,7 @@ export default function EsportsStatsSection() {
   const orbY2 = useTransform(scrollYProgress, [0, 1], [0, -150]);
 
   return (
-    <section ref={ref} className="relative py-32 px-6 overflow-hidden">
+    <section ref={ref} className="relative pt-32 px-6 overflow-hidden">
       {/* === Background layers === */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Animated gradient wash */}
@@ -27,8 +27,7 @@ export default function EsportsStatsSection() {
             ease: "linear",
             repeat: Infinity,
           }}
-          className="absolute inset-0 bg-[linear-gradient(135deg,rgba(8,0,20,1)_0%,rgba(20,5,35,1)_40%,rgba(5,0,15,1)_100%)]
- bg-[length:200%_200%]"
+          className="absolute inset-0   bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[length:200%_200%]"
         />
         {/* bg-[linear-gradient(135deg,rgba(10,10,20,1)_0%,rgba(15,20,35,1)_40%,rgba(5,10,25,1)_100%)] */}
         {/* bg-[linear-gradient(135deg,rgba(0,0,0,1)_0%,rgba(10,10,15,1)_40%,rgba(0,0,0,1)_100%)] */}
@@ -45,7 +44,7 @@ export default function EsportsStatsSection() {
         />
 
         {/* Faint grid overlay */}
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.04] mix-blend-overlay" />
+        {/* <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.04] mix-blend-overlay" /> */}
 
         {/* Central glow pulse */}
         <motion.div
@@ -101,9 +100,10 @@ export default function EsportsStatsSection() {
                 scale: 1.03,
                 transition: { type: "spring", stiffness: 250, damping: 20 },
               }}
-              className="p-8 rounded-2xl bg-white/5 border border-white/10 
+              className="p-8 rounded-2xl bg-white/5 border 
                          hover:bg-white/[0.07] hover:border-[color:var(--neo)]/30 
-                         transition-all text-center group backdrop-blur-sm"
+                         transition-all text-center group backdrop-blur-sm
+                         border-[color:var(--neo)]/40 shadow-[0_0_15px_-5px_var(--neo)] "
             >
               <div className="text-5xl sm:text-6xl font-bold text-[color:var(--neo)] mb-4 group-hover:scale-110 transition-transform">
                 {stat.value}

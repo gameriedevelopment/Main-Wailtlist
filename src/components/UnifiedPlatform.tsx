@@ -48,18 +48,18 @@ export default function UnifiedPlatformSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-20"
+          className="text-center mb-20 "
         >
           <h2 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6 leading-tight">
-            A Unified Platform.
+            A Unified Platform
             <br />
             <span className="bg-gradient-to-r from-[color:var(--neo)] via-[color:var(--acc)] to-[color:var(--neo)] bg-clip-text text-transparent">
-              For Every Role.
+              For Every Role
             </span>
           </h2>
           <p className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
-            Gamérie is the all-in-one Command Center for every player in the
-            industry. Find your pillar.
+            Gamerie is the all-in-one Command Center for every player in the
+            industry. <br /> Find your pillar.
           </p>
         </motion.div>
 
@@ -120,7 +120,7 @@ export default function UnifiedPlatformSection() {
         </div>
 
         {/* KAMK Section */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -144,7 +144,11 @@ export default function UnifiedPlatformSection() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
+        <p className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed text-center">
+          Gamerie is a suite of professional tools designed to help you succeed
+          in the gaming industry, on your terms.
+        </p>
 
         {/* CTA */}
         <motion.div

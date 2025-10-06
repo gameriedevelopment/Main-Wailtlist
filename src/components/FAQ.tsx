@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useState, useRef } from "react";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import EsportsStatsSection from "./EsportStats";
 
 export default function FAQSection() {
   const ref = useRef(null);
@@ -21,7 +22,7 @@ export default function FAQSection() {
       <div className="absolute inset-0 z-0 pointer-events-none">
         <motion.div
           style={{ y: orbY1 }}
-          className="absolute -top-24 -left-32 w-96 h-96 bg-[color:var(--neo)]/10 rounded-full blur-3xl"
+          className="absolute top-24 -left-32 w-96 h-96 bg-[color:var(--neo)]/10 rounded-full blur-3xl"
         />
         <motion.div
           style={{ y: orbY2 }}
@@ -32,7 +33,7 @@ export default function FAQSection() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[color:var(--neo)]/5 rounded-full blur-3xl" />
 
         {/* Divider line for smooth transition from CTA */}
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        {/* <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" /> */}
       </div>
 
       {/* === Foreground === */}
@@ -50,9 +51,9 @@ export default function FAQSection() {
               Questions
             </span>
           </h2>
-          <p className="text-lg text-white/60">
+          {/* <p className="text-lg text-white/60">
             See our FAQs and learn how you can make money as a Gamer.
-          </p>
+          </p> */}
         </motion.div>
 
         <motion.div

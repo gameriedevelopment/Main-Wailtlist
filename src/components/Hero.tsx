@@ -62,7 +62,7 @@ export default function Hero({
       {/* === Layer 3: Hero content === */}
       <motion.div
         style={{ y: heroY, opacity: heroOpacity }}
-        className="relative z-20 mx-auto max-w-5xl text-center"
+        className="relative z-20 mx-auto max-w-7xl text-center"
       >
         {/* Badge */}
         <motion.div
@@ -84,10 +84,10 @@ export default function Hero({
           transition={{ duration: 0.7, delay: 0.1 }}
           className="text-6xl sm:text-7xl lg:text-8xl font-bold tracking-tight mb-6 leading-[1.05]"
         >
-          Your gaming universe
+          The only Esports and gaming
           <br />
           <span className="bg-gradient-to-r from-[color:var(--neo)] via-[color:var(--acc)] to-[color:var(--neo)] bg-clip-text text-transparent">
-            unified
+            social media Platform
           </span>
         </motion.h1>
 
@@ -98,8 +98,14 @@ export default function Hero({
           transition={{ duration: 0.7, delay: 0.2 }}
           className="text-xl sm:text-2xl text-white/70 mb-12 max-w-3xl mx-auto leading-relaxed font-light"
         >
-          One platform for your entire gaming life. Play, compete, and connect
-          with gamers worldwide.
+          Create your gaming{" "}
+          <span className="text-[color:var(--neo)]">profile,</span> track{" "}
+          <span className="text-[color:var(--neo)]">teams</span> and{" "}
+          <span className="text-[color:var(--neo)]">players</span>, show your
+          gaming potentials, and find your new teammates…{" "}
+          <span className="text-[color:var(--neo)]">All for free.</span> Join
+          our mailing list today, for early access, and exclusive benefits and
+          updates.
         </motion.p>
 
         {/* Waitlist form */}
@@ -115,7 +121,7 @@ export default function Hero({
           >
             <Input
               type="email"
-              placeholder="Enter your email"
+              placeholder="Enter your email to claim your stake"
               onChange={(e) => setEmail(e.target.value)}
               className="h-12 bg-white/5 border-white/10 text-base rounded-lg focus-visible:ring-1 focus-visible:ring-[color:var(--neo)] focus-visible:border-[color:var(--neo)]"
             />
@@ -139,7 +145,7 @@ export default function Hero({
           )}
           {!success && (
             <p className="text-sm text-white/40">
-              Only 500 early access spots remaining
+              Only 800 early access spots remaining
             </p>
           )}
         </motion.div>

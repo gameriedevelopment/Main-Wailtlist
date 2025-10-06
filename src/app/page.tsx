@@ -115,9 +115,6 @@ export default function Home() {
         heroOpacity={heroOpacity}
       />
 
-      {/*STORY SECTION 2: E-SPORT STATS */}
-      <EsportsStatsSection />
-
       {/*STORY SECTION 3: UNIFIED PLATFORM */}
       <UnifiedPlatformSection />
 
@@ -137,6 +134,8 @@ export default function Home() {
         loading={loading}
         success={success}
       />
+
+      <EsportsStatsSection />
 
       {/* FAQ */}
       <FAQSection />

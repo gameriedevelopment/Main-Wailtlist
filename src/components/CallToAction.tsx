@@ -75,7 +75,7 @@ export default function CallToAction({
           transition={{ delay: 0.1 }}
           className="text-xl text-white/60 mb-12"
         >
-          Secure your spot now. Only 500 early access slots available.
+          Secure your spot now. Only 800 early access slots available.
         </motion.p>
 
         <motion.div
@@ -90,7 +90,7 @@ export default function CallToAction({
           >
             <Input
               type="email"
-              placeholder="you@game.gg"
+              placeholder="Enter your email"
               onChange={(e) => setEmail(e.target.value)}
               className="h-12 bg-white/5 border-white/10 rounded-lg focus-visible:ring-1 focus-visible:ring-[color:var(--neo)]"
             />
@@ -99,7 +99,7 @@ export default function CallToAction({
               disabled={loading}
               className="h-12 px-10 bg-[color:var(--neo)] hover:bg-[color:var(--acc)] text-black font-medium rounded-lg cursor-pointer"
             >
-              {loading ? "Joining..." : "Join waitlist"}
+              {loading ? "Joining..." : "Pre-Register now"}
             </Button>
           </form>
           {!!success && (

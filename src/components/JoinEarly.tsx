@@ -51,8 +51,8 @@ export default function JoinEarly() {
             Early access, exclusive perks
           </h2>
           <p className="text-xl text-white/60 max-w-2xl mx-auto">
-            The first 500 members unlock lifetime benefits and shape the future
-            of Gamérie.
+            The first 30,000 members unlock one year benefits and shape the
+            future of Gamerie.
           </p>
         </motion.div>
 
@@ -66,7 +66,7 @@ export default function JoinEarly() {
             {
               icon: "🎁",
               title: "Exclusive Rewards",
-              desc: "Early tournament access and premium features",
+              desc: "Early challenges access and premium features",
             },
             {
               icon: "🗳️",
@@ -86,7 +86,7 @@ export default function JoinEarly() {
             {
               icon: "🔓",
               title: "Beta Access",
-              desc: "First to try new features and tournaments",
+              desc: "First to try new features and challenges",
             },
           ].map((item, i) => (
             <motion.div
@@ -122,7 +122,7 @@ export default function JoinEarly() {
           >
             Claim your perks
           </Button>
-          <p className="mt-4 text-sm text-white/40">Only 500 spots remaining</p>
+          <p className="mt-4 text-sm text-white/40">Only 800 spots remaining</p>
         </motion.div>
       </div>
     </section>

@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="flex flex-col sm:flex-row items-center justify-between gap-8 mb-8">
           <div className="flex items-center gap-2">
             <div className="h-1.5 w-1.5 rounded-full bg-[color:var(--neo)]" />
-            <span className="text-xl font-bold">Gamérie</span>
+            <span className="text-xl font-bold">Gamerie</span>
           </div>
           <div className="flex gap-8 text-sm">
             <a
@@ -27,7 +27,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="text-center sm:text-left text-sm text-white/40">
-          © {new Date().getFullYear()} Gamérie. All rights reserved.
+          © {new Date().getFullYear()} Gamerie. All rights reserved.
         </div>
       </div>
     </footer>
