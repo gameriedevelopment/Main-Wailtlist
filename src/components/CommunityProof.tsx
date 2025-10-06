@@ -211,6 +211,9 @@ export default function CommunityProof({ count }: { count: number }) {
           transition={{ duration: 6, repeat: Infinity }}
           className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] z-5 bg-[size:40px_40px]"
         />
+
+        {/* Divider line for smooth transition from CTA */}
+        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       </div>
 
       {/* === Foreground === */}

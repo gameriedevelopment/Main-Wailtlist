@@ -124,6 +124,11 @@ export default function Home() {
       {/* STORY SECTION 5: WHY JOIN EARLY */}
       <JoinEarly />
 
+      <EsportsStatsSection />
+
+      {/* FAQ */}
+      <FAQSection />
+
       {/* COMMUNITY PROOF */}
       <CommunityProof count={count} />
 
@@ -134,11 +139,6 @@ export default function Home() {
         loading={loading}
         success={success}
       />
-
-      <EsportsStatsSection />
-
-      {/* FAQ */}
-      <FAQSection />
 
       {/* FOOTER */}
       <Footer />
