@@ -19,7 +19,8 @@ export default function JoinEarly() {
       {/* === Background Layer === */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Ambient gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#0a0a0f]/70 to-black/90" />
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#0a0a0f]/70 to-black/90" /> */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0f] to-black opacity-90" />
 
         {/* Floating orbs with scroll parallax */}
         <motion.div

@@ -23,10 +23,11 @@ export default function CommandCenterSection() {
       {/* === Background layers === */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Gradient wash */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0f]/60 to-black" />
+        {/* <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#0a0a0f]/60 to-black" /> */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black via-[#0a0a0f] to-black opacity-90" />
 
         {/* Faint grid overlay */}
-        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.04] mix-blend-overlay" />
+        {/* <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-[0.04] mix-blend-overlay" /> */}
 
         {/* Floating orbs with parallax */}
         <motion.div
