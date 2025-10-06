@@ -114,6 +114,9 @@ export default function EsportsStatsSection() {
             </motion.div>
           ))}
         </div>
+        <p className="text-lg text-white/60 text-center mt-18">
+          See our FAQs and learn how you can make money as a Gamer.
+        </p>
       </div>
     </section>
   );
