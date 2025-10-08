@@ -11,8 +11,10 @@ import UnifiedPlatformSection from "@/components/UnifiedPlatform";
 import CommandCenterSection from "@/components/CommandSection";
 import EsportsStatsSection from "@/components/EsportStats";
 import FAQSection from "@/components/FAQ";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
   // Brand palette
   const COLORS = useMemo(
     () => ({
@@ -51,17 +53,44 @@ export default function Home() {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState<string>("");
+  const [footerSuccess, setFooterSuccess] = useState<string>("");
   const formRef = useRef<HTMLFormElement>(null);
+
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email) return;
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 900));
-    setLoading(false);
-    formRef.current?.reset();
-    setEmail("");
-    setSuccess("You're on the list! Check your inbox soon.");
-    setTimeout(() => setSuccess(""), 3500);
+    setSuccess("");
+
+    try {
+      const res = await fetch(process.env.NEXT_PUBLIC_BREVO_CONTACT_API ?? "", {
+        method: "POST",
+        headers: {
+          accept: "application/json",
+          "api-key": process.env.NEXT_PUBLIC_BREVO_API_KEY!,
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          listIds: [8],
+          updateEnabled: true,
+        }),
+      });
+
+      if (res.status === 201) {
+        setSuccess("🎉 You’ve been added to the waitlist!");
+        router.push("/thank-you");
+      } else if (res.status === 204) {
+        setSuccess("⚡ You're already on the waitlist ");
+      } else {
+        setSuccess("⚠️ Something went wrong. Please try again.");
+      }
+    } catch (err) {
+      setSuccess("⚠️ Failed to connect. Please try again later.");
+    } finally {
+      setLoading(false);
+      setEmail("");
+      formRef.current?.reset();
+    }
   };
 
   return (
@@ -137,7 +166,7 @@ export default function Home() {
         onSubmit={onSubmit}
         setEmail={setEmail}
         loading={loading}
-        success={success}
+        success={footerSuccess}
       />
 
       {/* FOOTER */}

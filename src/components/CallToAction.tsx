@@ -112,7 +112,7 @@ export default function CallToAction({
             </motion.p>
           )}
           <a
-            href="https://discord.com/invite/"
+            href={process.env.NEXT_PUBLIC_DISCORD_INVITE_LINK!}
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors"

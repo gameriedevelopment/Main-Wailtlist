@@ -136,7 +136,7 @@ export default function CommandCenterSection() {
                 className="h-14 px-10 bg-[color:var(--neo)] hover:bg-[color:var(--acc)] text-black font-semibold rounded-xl text-lg transition-all shadow-lg shadow-[color:var(--neo)]/20"
               >
                 <a
-                  href="https://discord.gg/gamerie"
+                  href={process.env.NEXT_PUBLIC_DISCORD_INVITE_LINK!}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
