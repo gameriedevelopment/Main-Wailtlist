@@ -69,26 +69,22 @@ export default function UnifiedPlatformSection() {
             {
               title: "The Pro Player",
               desc: "Your verified profile is your resume. Get scouted by top teams based on real performance data and land your dream contract.",
-              image:
-                "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=800&auto=format&fit=crop&q=80",
+              image: "/ProPlayer.png",
             },
             {
               title: "The Team Manager",
               desc: "Build your dynasty. Showcase your team's achievements, recruit verified talent with our scouting tools, and attract sponsors.",
-              image:
-                "https://images.unsplash.com/photo-1560253023-3ec5d502959f?w=800&auto=format&fit=crop&q=80",
+              image: "/Manager.png",
             },
             {
               title: "The Superstar",
               desc: "Monetize your influence. Launch a subscription page, offer exclusive content, and build a reliable income stream. You keep 80%.",
-              image:
-                "https://images.unsplash.com/photo-1511512578047-dfb367046420?w=800&auto=format&fit=crop&q=80",
+              image: "/SuperStar.png",
             },
             {
               title: "The Community Gamer",
               desc: "Find your squad. Our AI matchmaking helps you connect with non-toxic players who share your passion, playstyle, and goals.",
-              image:
-                "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&auto=format&fit=crop&q=80",
+              image: "/Community.png",
             },
           ].map((role, i) => (
             <motion.div
