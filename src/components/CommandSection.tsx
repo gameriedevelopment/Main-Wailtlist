@@ -123,15 +123,10 @@ export default function CommandCenterSection() {
             </motion.div> */}
             <p className="text-xl text-white/60 max-w-3xl mx-auto leading-relaxed">
               Join the community while you wait and apply if you want, to become
-              an MVP tester.
+              an MVP tester or a Founding Partner.
             </p>
 
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-center"
-            >
-              <Button
+            {/* <Button
                 asChild
                 className="h-14 px-10 bg-[color:var(--neo)] hover:bg-[color:var(--acc)] text-black font-semibold rounded-xl text-lg transition-all shadow-lg shadow-[color:var(--neo)]/20"
               >
@@ -149,8 +144,39 @@ export default function CommandCenterSection() {
                   </svg>
                   Gamerie Discord Hub
                 </a>
-              </Button>
-            </motion.div>
+              </Button> */}
+            <div className="space-y-2 flex flex-col justify-start items-center">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-center"
+              >
+                <a
+                  href={process.env.NEXT_PUBLIC_DISCORD_INVITE_LINK!}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+                >
+                  <span>💬</span>
+                  <span className="text-sm">Join Discord Community</span>
+                </a>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="text-center"
+              >
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-2 text-white/60 hover:text-white transition-colors"
+                >
+                  <span>💬</span>
+                  <span className="text-sm">Apply to partners page</span>
+                </a>
+              </motion.div>
+            </div>
           </motion.div>
 
           <div

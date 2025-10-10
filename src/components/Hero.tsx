@@ -4,10 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 
 const images = [
-  "/future-3.jpg",
-  "/future-4.jpg",
-  "/future-1.jpg",
-  "/future-2.jpg",
+  "/slide-2.png",
+  "/slide-1.png",
+  "/slide-3.png",
+  "/slide-4.png",
+  "/slide-5.jpg",
 ];
 
 export default function Hero({
